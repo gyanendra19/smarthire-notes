@@ -60,7 +60,7 @@ const AllNotes = ({ notes, setNotes }) => {
         setFilteredNotes(notesFromArray.slice().reverse())
     }, [pageFirstIndex, pageLastIndex, notes])
 
-
+    console.log(filteredNotes);
     return (
         <>
             <h1 className='text-[42px] font-extrabold'>NOTES</h1>
