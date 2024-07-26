@@ -70,7 +70,7 @@ const AllNotes = ({ notes, setNotes }) => {
                 {filteredNotes.length < 1 ? (
                     <p className='text-center text-xl font-semibold pt-10'>No Notes</p>
                 ) : (
-                    filteredNotes?.reverse().map(note => (
+                    filteredNotes?.map(note => (
                         <div key={note.id} className='md:w-[450px] w-full h-[140px] hover:bg-[#67DDE4] transition-all duration-300 flex flex-col gap-2 p-6 pt-4 rounded-xl bg-[#F9F9F9]'>
                             <h2 className='text-black font-bold text-lg'>{note.title?.charAt(0).toUpperCase() + note.title?.slice(1)}</h2>
                             <input
