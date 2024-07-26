@@ -10,6 +10,7 @@ const notesFromStorage = () => {
     const parsedNotes = JSON.parse(localNotes)
     return parsedNotes
   }
+  return []
 }
 
 
