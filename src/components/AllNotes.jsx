@@ -87,7 +87,7 @@ const AllNotes = ({ notes, setNotes }) => {
                 )}
                 <div className='flex items-center justify-center gap-8'>
                     <span onClick={() => handlePrevPage()} className='p-2 cursor-pointer rounded-full border border-gray-400'><RiArrowLeftSLine /></span>
-                    <span>Page {currentPage} of {query !== '' ? filteredTotalPages : totalPages}</span>
+                    <span>Page {filteredNotes.length < 1 ? '0' : currentPage} of {query !== '' ? filteredTotalPages : totalPages}</span>
                     <span onClick={() => handleNextPage()} className='p-2 cursor-pointer rounded-full border border-gray-400'><RiArrowRightSLine /></span>
                 </div>
             </div>
