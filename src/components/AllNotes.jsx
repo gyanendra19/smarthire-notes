@@ -25,7 +25,7 @@ const AllNotes = ({ notes, setNotes }) => {
     const totalPages = Math.ceil(notes.length / notesPerPage);
     const notesFromArray = notes.slice(pageFirstIndex, pageLastIndex)
     
-    const [filteredNotes, setFilteredNotes] = useState(notesFromArray)
+    const [filteredNotes, setFilteredNotes] = useState(notesFromArray.slice().reverse())
     const filteredTotalPages = Math.ceil(filteredNotes.length / notesPerPage);
 
     // HANDLING NEXT PAGE BUTTON
@@ -52,13 +52,14 @@ const AllNotes = ({ notes, setNotes }) => {
             note.content.toLowerCase().includes(queryValue)
         );
 
-        setFilteredNotes(filtered);
+        setFilteredNotes(filtered.slice().reverse());
     }
 
     // UPDATING NOTES WHEN ADDED
     useEffect(() => {
-        setFilteredNotes(notesFromArray)
+        setFilteredNotes(notesFromArray.slice().reverse())
     }, [pageFirstIndex, pageLastIndex, notes])
+
 
     return (
         <>
@@ -69,7 +70,7 @@ const AllNotes = ({ notes, setNotes }) => {
                 {filteredNotes.length < 1 ? (
                     <p className='text-center text-xl font-semibold pt-10'>No Notes</p>
                 ) : (
-                    filteredNotes?.map(note => (
+                    filteredNotes?.reverse().map(note => (
                         <div key={note.id} className='md:w-[450px] w-full h-[140px] hover:bg-[#67DDE4] transition-all duration-300 flex flex-col gap-2 p-6 pt-4 rounded-xl bg-[#F9F9F9]'>
                             <h2 className='text-black font-bold text-lg'>{note.title?.charAt(0).toUpperCase() + note.title?.slice(1)}</h2>
                             <input

@@ -20,9 +20,11 @@ const AddNote = ({ setNotes, setShowAddNote }) => {
         setNotes(prev => [...prev, newNote])
         setTitle('')
         setContent('')
-        setShowAddNote(false)
+        if(window.innerWidth < 765){
+            setShowAddNote(false)
+        }
     }
-
+    
     return (
         <>
             <h1 className='md:text-4xl text-3xl ml-6 md:mr-36 mb-2 text-[#67DDE4] font-bold'>What's on your mind?</h1>

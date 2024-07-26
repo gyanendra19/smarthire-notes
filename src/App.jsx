@@ -20,7 +20,7 @@ const notesFromStorage = () => {
 
 
 function App() {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState(notesFromStorage())
   const [showAddNote, setShowAddNote] = useState(false)
 
   // SETTING NOTES TO LOCAL STORAGE
