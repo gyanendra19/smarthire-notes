@@ -20,7 +20,7 @@ const notesFromStorage = () => {
 
 
 function App() {
-  const [notes, setNotes] = useState(notesFromStorage())
+  const [notes, setNotes] = useState([])
   const [showAddNote, setShowAddNote] = useState(false)
 
   // SETTING NOTES TO LOCAL STORAGE
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <section className='w-full md:h-screen h-fit relative'>
+      <section className='w-full md:h-screen min-h-screen relative'>
         <div onClick={() => setShowAddNote(false)} className={`h-full w-full absolute z-20 top-0 left-0 bg-black opacity-30 ${showAddNote ? '' : 'hidden'}`}></div>
         <div className={`gap-4 z-50 items-center w-full flex flex-col fixed top-12 ${showAddNote ? '' : 'hidden'}`}>
           <AddNote setNotes={setNotes} setShowAddNote = {setShowAddNote} />
@@ -46,7 +46,7 @@ function App() {
           </div>
         </div>
 
-        <div className='fixed left-1/2 -translate-y-1/2 -translate-x-1/2 md:hidden block bottom-12 w-1/2'>
+        <div className='fixed left-1/2 -translate-y-1/2 -translate-x-1/2 md:hidden block bottom-12 w-fit'>
           <button onClick={() => setShowAddNote(prev => !prev)} className='w-fit px-7 font-semibold py-2 bg-[#67DDE4] rounded-full'>ADD NOTE</button>
         </div>
       </section>
