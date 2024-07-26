@@ -14,7 +14,7 @@ const notesFromStorage = () => {
     id: uuidv4(),
     title: 'my first note',
     content: 'This is my first note here',
-    timeStamp: new Date().toISOString()
+    timestamp: new Date().toISOString()
   }]
 }
 

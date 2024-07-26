@@ -13,7 +13,7 @@ const AllNotes = ({ notes, setNotes }) => {
 
     // UPDATING NOTES
     const updateTodo = (value, id) => {
-        setNotes(prev => prev.map(note => note.id === id ? { ...note, content: value } : note))
+        setNotes(prev => prev.map(note => note.id === id ? { ...note, content: value, timestamp: new Date().toISOString() } : note))
     }
 
     // PAGINATION
